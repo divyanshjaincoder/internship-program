@@ -303,11 +303,11 @@ const Index = () => {
               <p className="text-[#42AAC5] font-semibold">Web Bolster Pvt. Ltd.</p>
                <p className="text-[#42AAC5] font-semibold">Call Us :</p>
 <a href="tel:+9630709988" className="text-[#42AAC5] font-semibold underline">
-  +9630709988
+  +919630709988
 </a>
 <br></br>
 <a href="tel:+9630709988" className="text-[#42AAC5] font-semibold underline">
-  +9630547773
+  +919630547773
 </a>
             </div>
           </div>
