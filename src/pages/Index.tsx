@@ -110,7 +110,7 @@ const Index = () => {
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
-              Offered by <span className="font-semibold">Codingshaala</span> in association with <span className="font-semibold">Web Bolster Pvt. Ltd.</span>
+              Offered by <span className="font-semibold">CodingShaala</span> in association with <span className="font-semibold">Web Bolster Pvt. Ltd.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -122,14 +122,7 @@ const Index = () => {
                 Apply Now
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-white text-[#42AAC5] hover:bg-white hover:text-[#42AAC5] text-lg px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
-                onClick={openEnquiryForm}
-              >
-                Learn More
-              </Button>
+              
             </div>
 
             {/* Stats Counter */}
