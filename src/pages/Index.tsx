@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Award, BookOpen, Users, Calendar, MapPin, Phone, Globe, Star, CheckCircle, Clock, Trophy, Zap, Target, ArrowRight, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import codingshaalaicon from "../assets/codingshaala.png"
 import WhatsAppButton from '@/components/WhatsAppButton';
 import EnquiryForm from '@/components/EnquiryForm';
 
@@ -15,7 +16,7 @@ const Index = () => {
     
     // Animate counters
     const timer = setTimeout(() => {
-      setCounters({ projects: 3, students: 10, days: 45 });
+      setCounters({ projects: 2, students: 10, days: 45 });
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -99,7 +100,7 @@ const Index = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fadeInUp opacity-100' : 'opacity-0'}`}>
             {/* Logo/Icon */}
             <div className="w-32 h-32 bg-white/20 mx-auto rounded-2xl mb-8 flex items-center justify-center backdrop-blur-sm animate-pulse-glow">
-              <BookOpen className="w-16 h-16 text-white" />
+             <img src ={codingshaalaicon}></img>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
