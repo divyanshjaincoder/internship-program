@@ -12,6 +12,7 @@ const Index = () => {
   const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
 
   useEffect(() => {
+    
     setIsVisible(true);
     
     // Animate counters
