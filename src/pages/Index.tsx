@@ -99,8 +99,8 @@ const Index = () => {
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-fadeInUp opacity-100' : 'opacity-0'}`}>
             {/* Logo/Icon */}
-            <div className="w-32 h-32 bg-white/20 mx-auto rounded-2xl mb-8 flex items-center justify-center backdrop-blur-sm animate-pulse-glow">
-             <img src ={codingshaalaicon}></img>
+            <div className='w-[100%] flex justify-center '>
+             <img className='h-[8vh]' src ={codingshaalaicon}></img>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
@@ -134,7 +134,7 @@ const Index = () => {
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold mb-2">{counters.students}</div>
-                <div className="text-white/80">Students Only</div>
+                <div className="text-white/80">Students per batch Only</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold mb-2">{counters.days}</div>

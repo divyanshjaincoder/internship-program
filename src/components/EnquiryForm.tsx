@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { X, User, Phone, Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import emailjs from '@emailjs/browser';
 
 interface EnquiryFormProps {
   isOpen: boolean;
@@ -11,7 +12,31 @@ interface EnquiryFormProps {
 }
 
 const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
   if (!isOpen) return null;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    emailjs.sendForm(
+      'service_wudy02v',    
+      'template_m04bem9',    
+      formRef.current,
+      'jU7-APtyJwgUNbupr'       
+    )
+    .then(() => {
+      alert('Thanks for the Enrollment,We will connect with you asap!!');
+      formRef.current?.reset();
+      onClose();
+    })
+    .catch((error) => {
+      alert('Failed to send enquiry.');
+      console.error('EmailJS error:', error);
+    });
+  };
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -28,15 +53,10 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
         </div>
 
         <form
-          action="codingshaala@gmail.com"
-          method="POST"
+          ref={formRef}
+          onSubmit={handleSubmit}
           className="p-6 space-y-6"
         >
-          {/* Hidden configuration fields */}
-          <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
-          <input type="hidden" name="_subject" value="New Enquiry Received!" />
-          <input type="hidden" name="_captcha" value="false" />
-
           <div className="space-y-2">
             <Label htmlFor="name" className="flex items-center gap-2">
               <User className="w-4 h-4 text-[#42AAC5]" />
@@ -44,7 +64,7 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
             </Label>
             <Input
               id="name"
-              name="name"
+              name="user_name"
               type="text"
               required
               placeholder="Enter your full name"
@@ -59,7 +79,7 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
             </Label>
             <Input
               id="phone"
-              name="phone"
+              name="user_phone"
               type="tel"
               required
               placeholder="Enter your phone number"
@@ -74,7 +94,7 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
             </Label>
             <Input
               id="email"
-              name="email"
+              name="user_email"
               type="email"
               required
               placeholder="Enter your email address"
