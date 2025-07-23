@@ -121,7 +121,7 @@ const Index = () => {
                 size="lg" 
                 className="bg-white text-[#42AAC5] hover:bg-gray-100 text-lg px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
-                Apply Now
+                Enroll Now
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               
@@ -277,7 +277,7 @@ const Index = () => {
             size="lg" 
             className="bg-white text-[#42AAC5] hover:bg-gray-100 text-xl px-12 py-6 rounded-xl font-bold transition-all duration-300 hover:scale-105 animate-pulse-glow"
           >
-            Secure Your Spot Now
+            Enroll Now
             <ArrowRight className="ml-3 w-6 h-6" />
           </Button>
         </div>

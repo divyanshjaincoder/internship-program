@@ -48,7 +48,7 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
           >
             <X className="w-6 h-6" />
           </button>
-          <h2 className="text-2xl font-bold mb-2">Enquiry Form</h2>
+          <h2 className="text-2xl font-bold mb-2">Enrollment Form</h2>
           <p className="text-white/90">Tell us about yourself and we'll get back to you!</p>
         </div>
 
@@ -108,7 +108,7 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
               id="message"
               name="message"
               rows={3}
-              placeholder="Tell us about your background or any specific questions..."
+              placeholder="Tell us about your Education background"
               className="border-gray-300 focus:border-[#42AAC5] focus:ring-[#42AAC5]"
             />
           </div>
@@ -119,7 +119,7 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
           >
             <div className="flex items-center justify-center gap-2">
               <Send className="w-4 h-4" />
-              Submit Enquiry
+              Submit Form
             </div>
           </Button>
         </form>
