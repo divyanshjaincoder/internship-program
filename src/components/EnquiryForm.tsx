@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import emailjs from '@emailjs/browser';
+ import { toast } from "@/components/ui/sonner";
+ import confetti from "canvas-confetti";
 
 interface EnquiryFormProps {
   isOpen: boolean;
@@ -16,27 +18,53 @@ const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
 
-    if (!formRef.current) return;
+ 
 
-    emailjs.sendForm(
-      'service_wudy02v',    
-      'template_m04bem9',    
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!formRef.current) return;
+
+  emailjs
+    .sendForm(
+      'service_wudy02v',
+      'template_m04bem9',
       formRef.current,
-      'jU7-APtyJwgUNbupr'       
+      'jU7-APtyJwgUNbupr'
     )
     .then(() => {
-      alert('Thanks for the Enrollment,We will connect with you asap!!');
+      // 🎉 Trigger confetti
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      // ✅ Show success toast
+      toast.success("🎉 Thanks for the Enrollment!", {
+        description: "ID and Password will be shared with you for the Dashboard shortly!",
+        duration: 5000,
+        icon: "🚀",
+        className: "border border-green-500 bg-white text-green-900 font-medium",
+      });
+
       formRef.current?.reset();
       onClose();
     })
     .catch((error) => {
-      alert('Failed to send enquiry.');
-      console.error('EmailJS error:', error);
+      // ❌ Show error toast
+      toast.error("Failed to send enquiry.", {
+        description: "Please try again later or check your connection.",
+        duration: 5000,
+        icon: "⚠️",
+        className: "border border-red-500 bg-white text-red-900 font-medium",
+      });
+
+      console.error("EmailJS error:", error);
     });
-  };
+};
+
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
